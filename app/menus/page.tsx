@@ -16,9 +16,9 @@ export default function MenusPage() {
 
         <Tabs defaultValue="petit-dejeuner" className="w-full">
           <TabsList className="grid w-full grid-cols-3 bg-[#151515]">
-            <TabsTrigger value="petit-dejeuner">Petit Déjeuner</TabsTrigger>
-            <TabsTrigger value="dejeuner">Déjeuner</TabsTrigger>
-            <TabsTrigger value="diner">Dîner</TabsTrigger>
+            <TabsTrigger id="petit-dejeuner"  value="petit-dejeuner">Petit Déjeuner</TabsTrigger>
+            <TabsTrigger id="dejeuner" value="dejeuner">Déjeuner</TabsTrigger>
+            <TabsTrigger id="diner" value="diner">Dîner</TabsTrigger>
           </TabsList>
 
           <TabsContent value="petit-dejeuner" className="mt-8">
