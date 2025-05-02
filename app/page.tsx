@@ -197,7 +197,7 @@ export default function Home() {
 
           <div className="text-center mt-12">
           <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 rounded-none text-lg">
-            <Link href="/reservation">Réserver une table</Link>
+            <Link href="/reservation">Réserver une table </Link>
           </Button>
 
           </div>
