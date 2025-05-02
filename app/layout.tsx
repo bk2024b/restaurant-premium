@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter, Playfair_Display } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import Header from "@/components/layout/header"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" })
@@ -10,7 +11,7 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif"
 export const metadata: Metadata = {
   title: "L'Élégance Culinaire | Restaurant Gastronomique",
   description: "Découvrez une expérience gastronomique exceptionnelle dans un cadre raffiné au cœur de Paris.",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="fr" suppressHydrationWarning>
       <body className={`${inter.variable} ${playfair.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <Header />
           {children}
         </ThemeProvider>
       </body>
