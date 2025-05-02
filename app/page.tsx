@@ -28,13 +28,13 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 rounded-none text-lg">
-                Réserver une table
+                <Link href="/reservation">Réserver une table</Link>
               </Button>
               <Button
                 variant="outline"
                 className="border-white text-white hover:bg-white/10 px-8 py-6 rounded-none text-lg"
               >
-                Découvrir notre menu
+                <Link href="/reservation">Découvrir notre menu</Link>
               </Button>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function Home() {
                 </li>
               </ul>
               <Link
-                href="/menus/petit-dejeuner"
+                href="/menus#petit-dejeuner"
                 className="text-amber-400 flex items-center gap-2 text-sm hover:underline"
               >
                 Voir le menu complet <span className="text-lg">→</span>
@@ -159,7 +159,10 @@ export default function Home() {
                   <p className="text-gray-400 text-sm">Purée de céleri, émulsion au beurre blanc, herbes fraîches</p>
                 </li>
               </ul>
-              <Link href="/menus/dejeuner" className="text-amber-400 flex items-center gap-2 text-sm hover:underline">
+              <Link 
+                href="/menus#dejeuner" 
+                className="text-amber-400 flex items-center gap-2 text-sm hover:underline"              
+              >
                 Voir le menu complet <span className="text-lg">→</span>
               </Link>
             </div>
@@ -183,16 +186,20 @@ export default function Home() {
                   <p className="text-gray-400 text-sm">Crème anglaise à la vanille de Madagascar</p>
                 </li>
               </ul>
-              <Link href="/menus/diner" className="text-amber-400 flex items-center gap-2 text-sm hover:underline">
+              <Link 
+                href="/menus#diner" 
+                className="text-amber-400 flex items-center gap-2 text-sm hover:underline"
+              >
                 Voir le menu complet <span className="text-lg">→</span>
               </Link>
             </div>
           </div>
 
           <div className="text-center mt-12">
-            <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 rounded-none text-lg">
-              Réserver une table
-            </Button>
+          <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 rounded-none text-lg">
+            <Link href="/reservation">Réserver une table</Link>
+          </Button>
+
           </div>
         </div>
       </section>
@@ -540,27 +547,27 @@ export default function Home() {
               <h4 className="text-lg font-medium mb-4">Informations</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <a href="#" className="hover:text-amber-400">
+                  <a href="/reservation" className="hover:text-amber-400">
                     Réservations
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-amber-400">
+                  <a href="/menus"  className="hover:text-amber-400">
                     Nos menus
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-amber-400">
+                  <a href="/about#events" className="hover:text-amber-400">
                     Événements privés
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-amber-400">
+                  <a href="/about#carrieres" className="hover:text-amber-400">
                     Carrières
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-amber-400">
+                  <a href="/about#mentions-legales" className="hover:text-amber-400">
                     Mentions légales
                   </a>
                 </li>
