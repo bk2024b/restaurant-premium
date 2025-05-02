@@ -388,7 +388,7 @@ export default function MenusPage() {
             Pour toute demande spécifique ou allergie alimentaire, n'hésitez pas à nous contacter.
           </p>
           <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 rounded-none text-lg">
-            Réserver une table
+            <Link href="/reservation">Réserver une table</Link>
           </Button>
         </div>
       </div>
