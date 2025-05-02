@@ -34,7 +34,7 @@ export default function Home() {
                 variant="outline"
                 className="border-white text-white hover:bg-white/10 px-8 py-6 rounded-none text-lg"
               >
-                <Link href="/reservation">Découvrir notre menu</Link>
+                <Link href="/menus">Découvrir notre menu</Link>
               </Button>
             </div>
           </div>
