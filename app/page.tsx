@@ -432,7 +432,7 @@ export default function Home() {
       <section className="py-20 bg-[#0f0f0f] relative">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/restaurant-interior.jpg"
+            src="/images/hero-restaurant.jpg"
             alt="Intérieur du restaurant"
             fill
             className="object-cover brightness-25"
