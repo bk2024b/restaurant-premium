@@ -6,7 +6,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 export default function MenusPage() {
   return (
     <main className="min-h-screen bg-[#0f0f0f] text-white">
-      <div className="container mx-auto px-4 py-12">
+      {/* Ajoutons un peu d'espace en haut pour compenser la navigation fixe */}
+      {/* Modifions la première div de contenu : */}
+      <div className="container mx-auto px-4 py-12 pt-8">
         <Link href="/" className="inline-flex items-center text-amber-400 hover:text-amber-300 mb-8">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Retour à l'accueil
@@ -16,9 +18,9 @@ export default function MenusPage() {
 
         <Tabs defaultValue="petit-dejeuner" className="w-full">
           <TabsList className="grid w-full grid-cols-3 bg-[#151515]">
-            <TabsTrigger id="petit-dejeuner"  value="petit-dejeuner">Petit Déjeuner</TabsTrigger>
-            <TabsTrigger id="dejeuner" value="dejeuner">Déjeuner</TabsTrigger>
-            <TabsTrigger id="diner" value="diner">Dîner</TabsTrigger>
+            <TabsTrigger value="petit-dejeuner">Petit Déjeuner</TabsTrigger>
+            <TabsTrigger value="dejeuner">Déjeuner</TabsTrigger>
+            <TabsTrigger value="diner">Dîner</TabsTrigger>
           </TabsList>
 
           <TabsContent value="petit-dejeuner" className="mt-8">
@@ -388,7 +390,7 @@ export default function MenusPage() {
             Pour toute demande spécifique ou allergie alimentaire, n'hésitez pas à nous contacter.
           </p>
           <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 rounded-none text-lg">
-            <Link href="/reservation">Réserver une table</Link>
+            Réserver une table
           </Button>
         </div>
       </div>

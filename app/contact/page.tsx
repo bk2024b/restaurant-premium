@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea"
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#0f0f0f] text-white">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 pt-8">
         <Link href="/" className="inline-flex items-center text-amber-400 hover:text-amber-300 mb-8">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Retour à l'accueil

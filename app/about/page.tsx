@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button"
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#0f0f0f] text-white">
-      <div className="container mx-auto px-4 py-12">
+      {/* Ajoutons un peu d'espace en haut pour compenser la navigation fixe */}
+      {/* Modifions la première div de contenu : */}
+      <div className="container mx-auto px-4 py-12 pt-8">
         <Link href="/" className="inline-flex items-center text-amber-400 hover:text-amber-300 mb-8">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Retour à l'accueil
@@ -107,7 +109,7 @@ export default function AboutPage() {
                   strokeLinejoin="round"
                   className="lucide lucide-heart-handshake"
                 >
-                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
                   <path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"></path>
                   <path d="m18 15-2-2"></path>
                   <path d="m15 18-2-2"></path>
