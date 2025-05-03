@@ -20,7 +20,7 @@ export default function AboutPage() {
           <div>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Fondé en 2010 par le chef étoilé Jean-Pierre Moreau, L'Élégance Culinaire est né d'une passion pour la
-              gastronomie française et d'un désir de créer une expérience culinaire exceptionnelle au cœur de Paris.
+              gastronomie et d'un désir de créer une expérience culinaire exceptionnelle au cœur de Paris.
             </p>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Après avoir travaillé dans plusieurs restaurants prestigieux à travers le monde, Jean-Pierre a voulu créer
@@ -34,7 +34,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="relative h-80 md:h-96 overflow-hidden rounded-sm">
-            <Image src="/images/chef-3.jpg" alt="Chef Jean-Pierre Moreau" fill className="object-cover" />
+            <Image src="/images/chef-1.jpg" alt="Chef Jean-Pierre Moreau" fill className="object-cover" />
           </div>
         </div>
 

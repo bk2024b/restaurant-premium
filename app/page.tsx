@@ -6,18 +6,18 @@ import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  const RestaurantSection = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const totalImages = 4;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const totalImages = 4;
+  
+  // Effet pour le défilement automatique
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % totalImages);
+    }, 3000); // Change d'image toutes les 3 secondes
     
-    // Effet pour le défilement automatique
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setActiveIndex((prevIndex) => (prevIndex + 1) % totalImages);
-      }, 3000); // Change d'image toutes les 3 secondes
-      
-      return () => clearInterval(interval);
-    }, []);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <main className="min-h-screen bg-[#0f0f0f] text-white">
       {/* Hero Section */}
@@ -451,7 +451,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-black py-12">
         <div className="container mx-auto px-4">
