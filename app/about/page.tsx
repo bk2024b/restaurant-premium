@@ -34,7 +34,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="relative h-80 md:h-96 overflow-hidden rounded-sm">
-            <Image src="/images/chef.jpg" alt="Chef Jean-Pierre Moreau" fill className="object-cover" />
+            <Image src="/images/chef-3.jpg" alt="Chef Jean-Pierre Moreau" fill className="object-cover" />
           </div>
         </div>
 

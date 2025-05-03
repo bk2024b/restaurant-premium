@@ -84,43 +84,106 @@ export default function Home() {
                 <span className="text-gray-400">Plus de 500 avis exceptionnels</span>
               </div>
             </div>
-            {/* Modification pour résoudre le problème d'affichage sur mobile */}
-            <div className="md:w-1/2 grid grid-cols-2 gap-4">
-              <div className="relative aspect-square w-full">
-                <Image 
-                  src="/images/dish-1.jpg" 
-                  alt="Plat signature" 
-                  fill 
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover rounded-sm" 
-                />
+            
+            {/* Carrousel pour mobile et grille pour desktop */}
+            <div className="md:w-1/2 w-full">
+              {/* Version mobile: carrousel */}
+              <div className="md:hidden w-full">
+                {/* On pourrait implémenter un vrai carrousel avec React, mais pour la simplicité on va utiliser un scroll horizontal */}
+                <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 gap-4">
+                  <div className="snap-center shrink-0 w-full flex-shrink-0">
+                    <div className="relative aspect-square w-full">
+                      <Image 
+                        src="/images/dish-1.jpg" 
+                        alt="Plat signature" 
+                        fill 
+                        sizes="100vw"
+                        className="object-cover rounded-sm" 
+                      />
+                    </div>
+                  </div>
+                  <div className="snap-center shrink-0 w-full flex-shrink-0">
+                    <div className="relative aspect-square w-full">
+                      <Image 
+                        src="/images/dish-2.jpg" 
+                        alt="Plat gastronomique" 
+                        fill 
+                        sizes="100vw"
+                        className="object-cover rounded-sm" 
+                      />
+                    </div>
+                  </div>
+                  <div className="snap-center shrink-0 w-full flex-shrink-0">
+                    <div className="relative aspect-square w-full">
+                      <Image 
+                        src="/images/dish-3.jpg" 
+                        alt="Dessert élégant" 
+                        fill 
+                        sizes="100vw"
+                        className="object-cover rounded-sm" 
+                      />
+                    </div>
+                  </div>
+                  <div className="snap-center shrink-0 w-full flex-shrink-0">
+                    <div className="relative aspect-square w-full">
+                      <Image 
+                        src="/images/dish-4.jpg" 
+                        alt="Cocktail signature" 
+                        fill 
+                        sizes="100vw"
+                        className="object-cover rounded-sm" 
+                      />
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Indicateurs de navigation pour le carrousel mobile */}
+                <div className="flex justify-center space-x-2 mt-4">
+                  <div className="h-2 w-2 rounded-full bg-amber-600"></div>
+                  <div className="h-2 w-2 rounded-full bg-amber-400/40"></div>
+                  <div className="h-2 w-2 rounded-full bg-amber-400/40"></div>
+                  <div className="h-2 w-2 rounded-full bg-amber-400/40"></div>
+                </div>
               </div>
-              <div className="relative aspect-square w-full mt-8">
-                <Image 
-                  src="/images/dish-2.jpg" 
-                  alt="Plat gastronomique" 
-                  fill 
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover rounded-sm" 
-                />
-              </div>
-              <div className="relative aspect-square w-full">
-                <Image 
-                  src="/images/dish-3.jpg" 
-                  alt="Dessert élégant" 
-                  fill 
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover rounded-sm" 
-                />
-              </div>
-              <div className="relative aspect-square w-full mt-8">
-                <Image 
-                  src="/images/dish-4.jpg" 
-                  alt="Cocktail signature" 
-                  fill 
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover rounded-sm" 
-                />
+              
+              {/* Version desktop: grille 2x2 */}
+              <div className="hidden md:grid grid-cols-2 gap-4">
+                <div className="relative aspect-square w-full">
+                  <Image 
+                    src="/images/dish-1.jpg" 
+                    alt="Plat signature" 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover rounded-sm" 
+                  />
+                </div>
+                <div className="relative aspect-square w-full mt-8">
+                  <Image 
+                    src="/images/dish-2.jpg" 
+                    alt="Plat gastronomique" 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover rounded-sm" 
+                  />
+                </div>
+                <div className="relative aspect-square w-full">
+                  <Image 
+                    src="/images/dish-3.jpg" 
+                    alt="Dessert élégant" 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover rounded-sm" 
+                  />
+                </div>
+                <div className="relative aspect-square w-full mt-8">
+                  <Image 
+                    src="/images/dish-4.jpg" 
+                    alt="Cocktail signature" 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover rounded-sm" 
+                  />
+                </div>
               </div>
             </div>
           </div>
