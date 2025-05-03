@@ -84,18 +84,43 @@ export default function Home() {
                 <span className="text-gray-400">Plus de 500 avis exceptionnels</span>
               </div>
             </div>
+            {/* Modification pour résoudre le problème d'affichage sur mobile */}
             <div className="md:w-1/2 grid grid-cols-2 gap-4">
-              <div className="relative h-64 overflow-hidden">
-                <Image src="/images/dish-1.jpg" alt="Plat signature" fill className="object-cover rounded-sm" />
+              <div className="relative aspect-square w-full">
+                <Image 
+                  src="/images/dish-1.jpg" 
+                  alt="Plat signature" 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover rounded-sm" 
+                />
               </div>
-              <div className="relative h-64 overflow-hidden mt-8">
-                <Image src="/images/dish-2.jpg" alt="Plat gastronomique" fill className="object-cover rounded-sm" />
+              <div className="relative aspect-square w-full mt-8">
+                <Image 
+                  src="/images/dish-2.jpg" 
+                  alt="Plat gastronomique" 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover rounded-sm" 
+                />
               </div>
-              <div className="relative h-64 overflow-hidden">
-                <Image src="/images/dish-3.jpg" alt="Dessert élégant" fill className="object-cover rounded-sm" />
+              <div className="relative aspect-square w-full">
+                <Image 
+                  src="/images/dish-3.jpg" 
+                  alt="Dessert élégant" 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover rounded-sm" 
+                />
               </div>
-              <div className="relative h-64 overflow-hidden mt-8">
-                <Image src="/images/dish-4.jpg" alt="Cocktail signature" fill className="object-cover rounded-sm" />
+              <div className="relative aspect-square w-full mt-8">
+                <Image 
+                  src="/images/dish-4.jpg" 
+                  alt="Cocktail signature" 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover rounded-sm" 
+                />
               </div>
             </div>
           </div>
@@ -414,8 +439,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Reservation CTA */}
+      {/* Réservation CTA */}
       <section className="py-20 bg-[#0f0f0f] relative">
         <div className="absolute inset-0 z-0">
           <Image
