@@ -1,9 +1,23 @@
+'use client'
 import Image from "next/image"
 import Link from "next/link"
 import { Calendar, Clock, MapPin, Phone, Star, Utensils } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const RestaurantSection = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const totalImages = 4;
+    
+    // Effet pour le défilement automatique
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setActiveIndex((prevIndex) => (prevIndex + 1) % totalImages);
+      }, 3000); // Change d'image toutes les 3 secondes
+      
+      return () => clearInterval(interval);
+    }, []);
   return (
     <main className="min-h-screen bg-[#0f0f0f] text-white">
       {/* Hero Section */}
@@ -61,236 +75,148 @@ export default function Home() {
 
       {/* Introduction Section */}
       <section className="py-20 bg-[#0f0f0f]">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="md:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-serif mb-6 text-amber-400">Notre Philosophie</h2>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Bienvenue à L'Élégance Culinaire, où la gastronomie française rencontre l'innovation contemporaine.
-                Notre chef étoilé crée des plats qui célèbrent les produits de saison et les saveurs authentiques.
-              </p>
-              <p className="text-gray-300 mb-8 leading-relaxed">
-                Dans notre établissement haut de gamme, nous nous engageons à offrir une expérience culinaire
-                inoubliable, où chaque détail est soigneusement pensé pour votre plaisir.
-              </p>
-              <div className="flex gap-4">
-                <div className="flex items-center gap-1 text-amber-400">
-                  <Star className="fill-amber-400" size={16} />
-                  <Star className="fill-amber-400" size={16} />
-                  <Star className="fill-amber-400" size={16} />
-                  <Star className="fill-amber-400" size={16} />
-                  <Star className="fill-amber-400" size={16} />
-                </div>
-                <span className="text-gray-400">Plus de 500 avis exceptionnels</span>
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col md:flex-row gap-12 items-center">
+          <div className="md:w-1/2">
+            <h2 className="text-3xl md:text-4xl font-serif mb-6 text-amber-400">Notre Philosophie</h2>
+            <p className="text-gray-300 mb-6 leading-relaxed">
+              Bienvenue à L'Élégance Culinaire, où la gastronomie française rencontre l'innovation contemporaine.
+              Notre chef étoilé crée des plats qui célèbrent les produits de saison et les saveurs authentiques.
+            </p>
+            <p className="text-gray-300 mb-8 leading-relaxed">
+              Dans notre établissement haut de gamme, nous nous engageons à offrir une expérience culinaire
+              inoubliable, où chaque détail est soigneusement pensé pour votre plaisir.
+            </p>
+            <div className="flex gap-4">
+              <div className="flex items-center gap-1 text-amber-400">
+                <Star className="fill-amber-400" size={16} />
+                <Star className="fill-amber-400" size={16} />
+                <Star className="fill-amber-400" size={16} />
+                <Star className="fill-amber-400" size={16} />
+                <Star className="fill-amber-400" size={16} />
               </div>
+              <span className="text-gray-400">Plus de 500 avis exceptionnels</span>
             </div>
-            
-            {/* Carrousel pour mobile et grille pour desktop */}
-            <div className="md:w-1/2 w-full">
-              {/* Version mobile: carrousel */}
-              <div className="md:hidden w-full">
-                {/* On pourrait implémenter un vrai carrousel avec React, mais pour la simplicité on va utiliser un scroll horizontal */}
-                <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 gap-4">
-                  <div className="snap-center shrink-0 w-full flex-shrink-0">
-                    <div className="relative aspect-square w-full">
-                      <Image 
-                        src="/images/dish-1.jpg" 
-                        alt="Plat signature" 
-                        fill 
-                        sizes="100vw"
-                        className="object-cover rounded-sm" 
-                      />
-                    </div>
-                  </div>
-                  <div className="snap-center shrink-0 w-full flex-shrink-0">
-                    <div className="relative aspect-square w-full">
-                      <Image 
-                        src="/images/dish-2.jpg" 
-                        alt="Plat gastronomique" 
-                        fill 
-                        sizes="100vw"
-                        className="object-cover rounded-sm" 
-                      />
-                    </div>
-                  </div>
-                  <div className="snap-center shrink-0 w-full flex-shrink-0">
-                    <div className="relative aspect-square w-full">
-                      <Image 
-                        src="/images/dish-3.jpg" 
-                        alt="Dessert élégant" 
-                        fill 
-                        sizes="100vw"
-                        className="object-cover rounded-sm" 
-                      />
-                    </div>
-                  </div>
-                  <div className="snap-center shrink-0 w-full flex-shrink-0">
-                    <div className="relative aspect-square w-full">
-                      <Image 
-                        src="/images/dish-4.jpg" 
-                        alt="Cocktail signature" 
-                        fill 
-                        sizes="100vw"
-                        className="object-cover rounded-sm" 
-                      />
-                    </div>
+          </div>
+          
+          {/* Carrousel pour mobile et grille pour desktop */}
+          <div className="md:w-1/2 w-full">
+            {/* Version mobile: carrousel automatique */}
+            <div className="md:hidden w-full">
+              <div className="relative w-full aspect-square overflow-hidden rounded-sm">
+                {/* Images avec transition en fondu */}
+                <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${activeIndex === 0 ? "opacity-100" : "opacity-0"}`}>
+                  <div className="relative aspect-square w-full">
+                    <Image 
+                      src="/images/dish-1.jpg" 
+                      alt="Plat signature" 
+                      fill 
+                      sizes="100vw"
+                      className="object-cover rounded-sm" 
+                    />
                   </div>
                 </div>
-                
-                {/* Indicateurs de navigation pour le carrousel mobile */}
-                <div className="flex justify-center space-x-2 mt-4">
-                  <div className="h-2 w-2 rounded-full bg-amber-600"></div>
-                  <div className="h-2 w-2 rounded-full bg-amber-400/40"></div>
-                  <div className="h-2 w-2 rounded-full bg-amber-400/40"></div>
-                  <div className="h-2 w-2 rounded-full bg-amber-400/40"></div>
+                <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${activeIndex === 1 ? "opacity-100" : "opacity-0"}`}>
+                  <div className="relative aspect-square w-full">
+                    <Image 
+                      src="/images/dish-2.jpg" 
+                      alt="Plat gastronomique" 
+                      fill 
+                      sizes="100vw"
+                      className="object-cover rounded-sm" 
+                    />
+                  </div>
+                </div>
+                <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${activeIndex === 2 ? "opacity-100" : "opacity-0"}`}>
+                  <div className="relative aspect-square w-full">
+                    <Image 
+                      src="/images/dish-3.jpg" 
+                      alt="Dessert élégant" 
+                      fill 
+                      sizes="100vw"
+                      className="object-cover rounded-sm" 
+                    />
+                  </div>
+                </div>
+                <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${activeIndex === 3 ? "opacity-100" : "opacity-0"}`}>
+                  <div className="relative aspect-square w-full">
+                    <Image 
+                      src="/images/dish-4.jpg" 
+                      alt="Cocktail signature" 
+                      fill 
+                      sizes="100vw"
+                      className="object-cover rounded-sm" 
+                    />
+                  </div>
                 </div>
               </div>
               
-              {/* Version desktop: grille 2x2 */}
-              <div className="hidden md:grid grid-cols-2 gap-4">
-                <div className="relative aspect-square w-full">
-                  <Image 
-                    src="/images/dish-1.jpg" 
-                    alt="Plat signature" 
-                    fill 
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover rounded-sm" 
+              {/* Indicateurs de navigation pour le carrousel mobile */}
+              <div className="flex justify-center space-x-2 mt-4">
+                {[0, 1, 2, 3].map((index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveIndex(index)}
+                    className={`h-2 w-2 rounded-full ${
+                      index === activeIndex ? "bg-amber-600" : "bg-amber-400/40"
+                    }`}
+                    aria-label={`Voir l'image ${index + 1}`}
                   />
-                </div>
-                <div className="relative aspect-square w-full mt-8">
-                  <Image 
-                    src="/images/dish-2.jpg" 
-                    alt="Plat gastronomique" 
-                    fill 
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover rounded-sm" 
-                  />
-                </div>
-                <div className="relative aspect-square w-full">
-                  <Image 
-                    src="/images/dish-3.jpg" 
-                    alt="Dessert élégant" 
-                    fill 
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover rounded-sm" 
-                  />
-                </div>
-                <div className="relative aspect-square w-full mt-8">
-                  <Image 
-                    src="/images/dish-4.jpg" 
-                    alt="Cocktail signature" 
-                    fill 
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover rounded-sm" 
-                  />
-                </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Version desktop: grille 2x2 avec effet de focus sur l'image active */}
+            <div className="hidden md:grid grid-cols-2 gap-4">
+              <div className="relative aspect-square w-full overflow-hidden rounded-sm">
+                <Image 
+                  src="/images/dish-1.jpg" 
+                  alt="Plat signature" 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className={`object-cover rounded-sm transition-transform duration-700 ${
+                    activeIndex === 0 ? "scale-105" : "scale-100"
+                  }`}
+                />
+              </div>
+              <div className="relative aspect-square w-full mt-8 overflow-hidden rounded-sm">
+                <Image 
+                  src="/images/dish-2.jpg" 
+                  alt="Plat gastronomique" 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className={`object-cover rounded-sm transition-transform duration-700 ${
+                    activeIndex === 1 ? "scale-105" : "scale-100"
+                  }`}
+                />
+              </div>
+              <div className="relative aspect-square w-full overflow-hidden rounded-sm">
+                <Image 
+                  src="/images/dish-3.jpg" 
+                  alt="Dessert élégant" 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className={`object-cover rounded-sm transition-transform duration-700 ${
+                    activeIndex === 2 ? "scale-105" : "scale-100"
+                  }`}
+                />
+              </div>
+              <div className="relative aspect-square w-full mt-8 overflow-hidden rounded-sm">
+                <Image 
+                  src="/images/dish-4.jpg" 
+                  alt="Cocktail signature" 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className={`object-cover rounded-sm transition-transform duration-700 ${
+                    activeIndex === 3 ? "scale-105" : "scale-100"
+                  }`}
+                />
               </div>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Menu Preview Section */}
-      <section className="py-20 bg-[#151515]">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-amber-400">Nos Menus</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Découvrez notre sélection de menus saisonniers, élaborés avec les meilleurs produits du terroir français.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[#0f0f0f] border border-gray-800 p-8 hover:border-amber-600 transition-colors">
-              <div className="mb-4">
-                <h3 className="text-xl font-serif text-amber-400 mb-2">Petit Déjeuner</h3>
-                <p className="text-gray-400 text-sm">Servi de 7h à 11h</p>
-              </div>
-              <ul className="space-y-4 mb-6">
-                <li>
-                  <h4 className="font-medium">Viennoiseries Artisanales</h4>
-                  <p className="text-gray-400 text-sm">Assortiment de croissants, pains au chocolat et brioches</p>
-                </li>
-                <li>
-                  <h4 className="font-medium">Œufs Bénédicte Truffés</h4>
-                  <p className="text-gray-400 text-sm">Œufs pochés, muffin anglais, sauce hollandaise à la truffe</p>
-                </li>
-                <li>
-                  <h4 className="font-medium">Granola Maison</h4>
-                  <p className="text-gray-400 text-sm">Yaourt grec, fruits frais de saison, miel d'acacia</p>
-                </li>
-              </ul>
-              <Link
-                href="/menus#petit-dejeuner"
-                className="text-amber-400 flex items-center gap-2 text-sm hover:underline"
-              >
-                Voir le menu complet <span className="text-lg">→</span>
-              </Link>
-            </div>
-
-            <div className="bg-[#0f0f0f] border border-gray-800 p-8 hover:border-amber-600 transition-colors">
-              <div className="mb-4">
-                <h3 className="text-xl font-serif text-amber-400 mb-2">Déjeuner</h3>
-                <p className="text-gray-400 text-sm">Servi de 12h à 15h</p>
-              </div>
-              <ul className="space-y-4 mb-6">
-                <li>
-                  <h4 className="font-medium">Carpaccio de Saint-Jacques</h4>
-                  <p className="text-gray-400 text-sm">Huile d'olive extra vierge, zestes d'agrumes, fleur de sel</p>
-                </li>
-                <li>
-                  <h4 className="font-medium">Risotto aux Cèpes</h4>
-                  <p className="text-gray-400 text-sm">Riz carnaroli, cèpes frais, parmesan affiné 24 mois</p>
-                </li>
-                <li>
-                  <h4 className="font-medium">Filet de Bar</h4>
-                  <p className="text-gray-400 text-sm">Purée de céleri, émulsion au beurre blanc, herbes fraîches</p>
-                </li>
-              </ul>
-              <Link 
-                href="/menus#dejeuner" 
-                className="text-amber-400 flex items-center gap-2 text-sm hover:underline"              
-              >
-                Voir le menu complet <span className="text-lg">→</span>
-              </Link>
-            </div>
-
-            <div className="bg-[#0f0f0f] border border-gray-800 p-8 hover:border-amber-600 transition-colors">
-              <div className="mb-4">
-                <h3 className="text-xl font-serif text-amber-400 mb-2">Dîner</h3>
-                <p className="text-gray-400 text-sm">Servi de 19h à 23h</p>
-              </div>
-              <ul className="space-y-4 mb-6">
-                <li>
-                  <h4 className="font-medium">Foie Gras de Canard</h4>
-                  <p className="text-gray-400 text-sm">Chutney de figues, pain brioché toasté, fleur de sel</p>
-                </li>
-                <li>
-                  <h4 className="font-medium">Filet de Bœuf Rossini</h4>
-                  <p className="text-gray-400 text-sm">Foie gras poêlé, sauce périgueux, pommes fondantes</p>
-                </li>
-                <li>
-                  <h4 className="font-medium">Soufflé au Grand Marnier</h4>
-                  <p className="text-gray-400 text-sm">Crème anglaise à la vanille de Madagascar</p>
-                </li>
-              </ul>
-              <Link 
-                href="/menus#diner" 
-                className="text-amber-400 flex items-center gap-2 text-sm hover:underline"
-              >
-                Voir le menu complet <span className="text-lg">→</span>
-              </Link>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-          <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 rounded-none text-lg">
-            <Link href="/reservation">Réserver une table </Link>
-          </Button>
-
-          </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
       {/* Services Section */}
       <section className="py-20 bg-[#0f0f0f]">
